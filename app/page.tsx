@@ -12,8 +12,8 @@ const value = 0.77;
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-screen">
-        <div className="w-1/3 bg-gradient-to-b from-[#374841] to-[#2D2D2D] shadow-xl">
+      <div className="flex min-h-screen md:flex-row flex-col">
+        <div className="md:w-1/3 w-full bg-gradient-to-b from-[#374841] to-[#2D2D2D] shadow-xl">
           <section className="px-5 py-3 flex flex-col gap-3">
             <div className="flex items-center">
               <span className="rounded-full bg-white w-4 h-4 inline-block mr-2"></span>
@@ -136,7 +136,7 @@ export default function Home() {
           </section>
         </div>
         <div className="bg-gradient-to-br from-[#2D2D2D] to-[#2E3732] w-full">
-          <section className="px-20 py-10">
+          <section className="md:px-20 py-10 px-4">
             <div className="flex flex-col gap-6 ">
               <div className="flex flex-col leading-tight">
                 <div>
@@ -157,7 +157,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <div className="grid-cols-2 grid gap-4 w-max">
+                <div className="md:grid-cols-2 grid-cols-1 grid gap-4 w-max">
                   <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
                     <div className="flex flex-col leading-tight text-sm text-gray-500">
                       <span>Last Practice Linear etc etc</span>
