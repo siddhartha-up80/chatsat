@@ -9,6 +9,56 @@ import "react-circular-progressbar/dist/styles.css";
 
 const value = 0.77;
 
+const leaderboard = [
+  {
+    rank: "01",
+    name: "Name",
+    score: "0/233",
+  },
+  {
+    rank: "02",
+    name: "Name",
+    score: "0/233",
+  },
+  {
+    rank: "03",
+    name: "Name",
+    score: "0/233",
+  },
+  {
+    rank: "54",
+    name: "You",
+    score: "0/233",
+  },
+];
+
+const cards = [
+  {
+    lastPractice: "Last Practice Linear etc etc",
+    date: "28/02/23",
+    type: "Practice",
+    description: "A description of the above parameter goes here.",
+  },
+  {
+    lastPractice: "Last Practice Linear etc etc",
+    date: "28/02/23",
+    type: "Mock",
+    description: "A description of the above parameter goes here.",
+  },
+  {
+    lastPractice: "Last Practice Linear etc etc",
+    date: "28/02/23",
+    type: "Title Text Here",
+    description: "A description of the above parameter goes here.",
+  },
+  {
+    lastPractice: "Last Practice Linear etc etc",
+    date: "28/02/23",
+    type: "Title Text Here",
+    description: "A description of the above parameter goes here.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -74,50 +124,35 @@ export default function Home() {
                 </button>
               </div>
               <div className="px-3 pb-4 gap-2 flex flex-col">
-                <div className="text-white bg-opacity-15 bg-white py-3 px-4 rounded-xl w-full flex justify-between">
-                  <span className="flex items-center gap-1">
-                    01. <Medal />{" "}
-                    <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
-                    Name
-                  </span>
+                {leaderboard.map(({ rank, name, score }) =>
+                  name != "You" ? (
+                    <div className="text-white bg-opacity-15 bg-white py-3 px-4 rounded-xl w-full flex justify-between">
+                      <span className="flex items-center gap-1">
+                        {rank}. <Medal />{" "}
+                        <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
+                        {name}
+                      </span>
 
-                  <span>
-                    0/233 <span className="text-lime-400 font-bold">XP</span>
-                  </span>
-                </div>
-                <div className="text-white bg-opacity-15 bg-white py-3 px-4 rounded-xl w-full flex justify-between">
-                  <span className="flex items-center gap-1">
-                    02. <Medal />{" "}
-                    <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
-                    Name
-                  </span>
+                      <span>
+                        {score}{" "}
+                        <span className="text-lime-400 font-bold">XP</span>
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="text-white bg-opacity-15 bg-gradient-to-b from-lime-400/50 to-sky-900/30 py-3 px-4 rounded-xl w-full flex justify-between">
+                      <span className="flex items-center gap-1">
+                        {rank}. <Medal />{" "}
+                        <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
+                        {name}
+                      </span>
 
-                  <span>
-                    0/233 <span className="text-lime-400 font-bold">XP</span>
-                  </span>
-                </div>
-                <div className="text-white bg-opacity-15 bg-white py-3 px-4 rounded-xl w-full flex justify-between">
-                  <span className="flex items-center gap-1">
-                    03. <Medal />{" "}
-                    <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
-                    Name
-                  </span>
-
-                  <span>
-                    0/233 <span className="text-lime-400 font-bold">XP</span>
-                  </span>
-                </div>
-                <div className="text-white bg-opacity-15 bg-gradient-to-b from-lime-400/50 to-sky-900/30 py-3 px-4 rounded-xl w-full flex justify-between">
-                  <span className="flex items-center gap-1">
-                    54. <Medal />{" "}
-                    <span className="rounded-full bg-white w-4 h-4 inline-block"></span>
-                    Name
-                  </span>
-
-                  <span>
-                    0/233 <span className="text-lime-400 font-bold">XP</span>
-                  </span>
-                </div>
+                      <span>
+                        {score}{" "}
+                        <span className="text-lime-400 font-bold">XP</span>
+                      </span>
+                    </div>
+                  )
+                )}
               </div>
             </div>
 
@@ -158,90 +193,29 @@ export default function Home() {
               </div>
               <div>
                 <div className="md:grid-cols-2 grid-cols-1 grid gap-4 w-max">
-                  <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
-                    <div className="flex flex-col leading-tight text-sm text-gray-500">
-                      <span>Last Practice Linear etc etc</span>
-                      <span>28/02/23</span>
-                    </div>
-                    <div>
+                  {cards.map(({ lastPractice, date, type, description }) => (
+                    <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
+                      <div className="flex flex-col leading-tight text-sm text-gray-500">
+                        <span>{lastPractice}</span>
+                        <span>{date}</span>
+                      </div>
                       <div>
-                        <TrendingUp className="text-white w-24 h-24" />
+                        <div>
+                          <TrendingUp className="text-white w-24 h-24" />
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-3xl text-white font-semibold">
+                          {type}
+                        </span>
+                      </div>
+                      <div className="leading-none">
+                        <span className="text-sm text-white">
+                          {description}
+                        </span>
                       </div>
                     </div>
-                    <div>
-                      <span className="text-3xl text-white font-semibold">
-                        Practice
-                      </span>
-                    </div>
-                    <div className="leading-none">
-                      <span className="text-sm text-white">
-                        A description of the above parameter goes here.
-                      </span>
-                    </div>
-                  </div>{" "}
-                  <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
-                    <div className="flex flex-col leading-tight text-sm text-gray-500">
-                      <span>Last Practice Linear etc etc</span>
-                      <span>28/02/23</span>
-                    </div>
-                    <div>
-                      <div>
-                        <TrendingUp className="text-white w-24 h-24" />
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-3xl text-white font-semibold">
-                        Mock
-                      </span>
-                    </div>
-                    <div className="leading-none">
-                      <span className="text-sm text-white">
-                        A description of the above parameter goes here.
-                      </span>
-                    </div>
-                  </div>{" "}
-                  <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
-                    <div className="flex flex-col leading-tight text-sm text-gray-500">
-                      <span>Last Practice Linear etc etc</span>
-                      <span>28/02/23</span>
-                    </div>
-                    <div>
-                      <div>
-                        <TrendingUp className="text-white w-24 h-24" />
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-3xl text-white font-semibold">
-                        Title Text Here
-                      </span>
-                    </div>
-                    <div className="leading-none">
-                      <span className="text-sm text-white">
-                        A description of the above parameter goes here.
-                      </span>
-                    </div>
-                  </div>{" "}
-                  <div className="box flex flex-col bg-[#404040] max-w-[20rem] min-h-[15rem] p-4 rounded-2xl">
-                    <div className="flex flex-col leading-tight text-sm text-gray-500">
-                      <span>Last Practice Linear etc etc</span>
-                      <span>28/02/23</span>
-                    </div>
-                    <div>
-                      <div>
-                        <TrendingUp className="text-white w-24 h-24" />
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-3xl text-white font-semibold">
-                        Title Text Here
-                      </span>
-                    </div>
-                    <div className="leading-none">
-                      <span className="text-sm text-white">
-                        A description of the above parameter goes here.
-                      </span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
